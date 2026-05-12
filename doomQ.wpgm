@@ -1,6 +1,6 @@
 import wollok.game.*
 
-import example.pepita
+import wollSlayer.*
 
 program PepitaGame {
 	game.title("Pepita")
