@@ -1,4 +1,4 @@
-import example.pepita
+import wollSlayer.*
 
 describe "group of tests for pepita" {
 
