@@ -1,18 +1,26 @@
 import wollok.game.*
-
 import wollSlayer.*
+import armas.*
+import direcciones.*
+import enemigos.*
 
-program PepitaGame {
-	game.title("Pepita")
+program DoomSlayer {
+	game.title("DoomQ")
 	game.height(10)
 	game.width(10)
+	game.boardGround("caminoPrueba.png")
 
-	// add assets in asset folder, for example, for the background
-  // game.boardGround("fondo2.jpg")
+	game.showAttributes(doomSlayer.vida())
+	game.addVisual(espadaComun)
+	game.addVisual(ornstein)
+	game.addVisual(doomSlayer)
 
-	//
-
-	game.showAttributes(pepita) //Debug
+	keyboard.left().onPressDo({ doomSlayer.mover(izquierda)})
+	keyboard.right().onPressDo({ doomSlayer.mover(derecha)})
+	keyboard.up().onPressDo({ doomSlayer.mover(arriba)})
+	keyboard.down().onPressDo({ doomSlayer.mover(abajo)})
+	keyboard.c().onPressDo({ doomSlayer.agarrarArma(game.uniqueCollider(doomSlayer))})
+	keyboard.space().onPressDo({ doomSlayer.atacar()})
 
 	game.start()
 }
