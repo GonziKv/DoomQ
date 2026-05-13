@@ -35,7 +35,9 @@ object doomSlayer {
   }
 
   method eliminarEnemigoEn(posicion) { 
-    game.getObjectsIn(posicion).filter({ e => e.esEnemigo() }).forEach({ enemigo => game.removeVisual(enemigo) }) // Eliminar enemigo en la posicion dada
+    game.getObjectsIn(posicion).filter({ e => e.esEnemigo() }).forEach({ enemigo => enemigo.bajarVida(ataque)
+                                                                          if (enemigo.vida()< 1) {
+                                                                            game.removeVisual(enemigo) } } )                                            // Eliminar enemigo en la posicion dada
   }
 
   // Consultas
