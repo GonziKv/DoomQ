@@ -33,6 +33,10 @@ object doomSlayer {
       game.getObjectsIn(direccionApuntado).forEach({objeto => game.removeVisual(objeto)})
     }
   }
+  
+  method position(_position) { //el setter solo lo necesito para testear
+		position = _position 
+	}
 
   // Consultas
 
