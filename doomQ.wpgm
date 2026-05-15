@@ -3,6 +3,8 @@ import wollSlayer.*
 import armas.*
 import direcciones.*
 import enemigos.*
+import cofre.*
+
 
 program DoomSlayer {
 	game.title("DoomQ")
@@ -13,6 +15,7 @@ program DoomSlayer {
 	game.showAttributes(doomSlayer.vida())
 	game.addVisual(espadaComun)
 	game.addVisual(ornstein)
+	game.addVisual(cofre)
 	game.addVisual(doomSlayer)
 
 	keyboard.left().onPressDo({ doomSlayer.mover(izquierda)})
@@ -21,6 +24,8 @@ program DoomSlayer {
 	keyboard.down().onPressDo({ doomSlayer.mover(abajo)})
 	keyboard.c().onPressDo({ doomSlayer.agarrarArma(game.uniqueCollider(doomSlayer))})
 	keyboard.space().onPressDo({ doomSlayer.atacar()})
+	keyboard.f().onPressDo({ doomSlayer.abrirCofre()})
+	keyboard.n().onPressDo({ game.say(doomSlayer, "tengo " + doomSlayer.cantItems())}) // es para testear que el cofre funciona
 
 	game.start()
 }
