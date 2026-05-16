@@ -23,7 +23,6 @@ object doomSlayer {
     const nuevaPosition = direccion.siguiente(position)
     apuntado = direccion
     position = nuevaPosition
-    apuntado = direccion
     image = "doomSlayer-walk-" + direccion.toString() + "1.png"
     game.schedule(150, {image = "doomSlayer-" + direccion.toString() + ".png"})
 }
