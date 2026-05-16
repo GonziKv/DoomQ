@@ -27,19 +27,18 @@ object doomSlayer {
     game.schedule(150, {image = "doomSlayer-" + direccion.toString() + ".png"})
 }
 
-
   method atacar() {
     const posicionApuntado = apuntado.siguiente(position) // Devuelve una posicion mas a la que se quedo mirando
     self.objetosRecibenEspadazo(posicionApuntado)
 
   }
-  
+
   method position(_position) { //el setter solo lo necesito para testear
 		position = _position 
 	}
 
   method objetosRecibenEspadazo(posicion) { 
-    game.getObjectsIn(posicion).forEach({ objeto => objeto.recibirEspadazo(ataque)})
+    game.getObjectsIn(posicion).forEach({ objeto => objeto.recibirEspadazo(self.ataqueTotal())})
   }
 
   method recibirDaño(cant){
@@ -60,7 +59,6 @@ object doomSlayer {
 	}
 
   method validarEspacio() {
-    
   }
 
   method ataque() {
@@ -71,4 +69,7 @@ object doomSlayer {
     return vida
   }
 
+  method ataqueTotal(){
+    return ataque + inventario.sum({arma => arma.atq()})
+  }
 }
