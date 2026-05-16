@@ -1,6 +1,6 @@
 object espadaComun {
   const atq = 3
-  var position = game.at(1,0)
+  var position = game.at(5,5)
 
   method atq() {
     return atq
@@ -40,5 +40,13 @@ object espadaEpico {
 
   method esEnemigo() {
     return false
+  }
+
+  method image() {
+    return "espadaEpica.png"
+  }
+
+  method position() {
+    return game.at(3,0)
   }
 }

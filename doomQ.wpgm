@@ -3,6 +3,8 @@ import wollSlayer.*
 import armas.*
 import direcciones.*
 import enemigos.*
+import inventario.*
+
 
 program DoomSlayer {
 	game.title("DoomQ")
@@ -14,6 +16,9 @@ program DoomSlayer {
 	game.addVisual(ornstein)
 	game.addVisual(espadaComun)
 	game.addVisual(doomSlayer)
+	game.addVisual(inventario)
+	game.addVisual(espadaEpico)
+
 
 	keyboard.left().onPressDo({ doomSlayer.mover(izquierda)})
 	keyboard.right().onPressDo({ doomSlayer.mover(derecha)})
