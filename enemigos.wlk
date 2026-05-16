@@ -31,16 +31,15 @@ class Enemigo{
   var property position 
   var property vida 
   var property image 
-
+  var property ataque
   method esEnemigo(){
       return true
   }
 
   method recibirEspadazo(cantidadDeDaño){
     vida -= cantidadDeDaño
-    if (vida >= 0){
-      self.morir()
-    }
+    self.morir()
+
   }
 
   method morir(){
@@ -48,11 +47,16 @@ class Enemigo{
       game.removeVisual(self)
     }
   }
+  
+  method colisionar(personaje) {
+    personaje.recibirDaño(ataque)
+  }
 }
 object fabricaDeEnemigos{
   method crearEnemigo(){
     return new Enemigo(
-                        vida = 1,
+                        vida = 100,
+                        ataque = 10,
                         position = randomizer.emptyPosition(),
                         image = "enemigo-" + (0.randomUpTo(4)).toString() + ".png" 
     )// mantener esta nomenclatura de "enemigo-" + NUMERO + ".png" y cambiar la cantidad a ser randomizada si llegase a ser mas de 4

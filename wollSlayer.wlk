@@ -5,8 +5,8 @@ object doomSlayer {
   var property vida = 100
   const inventario = #{}
   var ataque = 1
-  var position = game.origin()
-  var image = "doomSlayer-derecha.png"
+  var property position = game.origin()
+  var property image = "doomSlayer-derecha.png"
   var apuntado = derecha
   
   
@@ -42,6 +42,17 @@ object doomSlayer {
     game.getObjectsIn(posicion).forEach({ objeto => objeto.recibirEspadazo(ataque)})
   }
 
+  method recibirDaño(cant){
+    vida -= cant
+    self.morir()
+  }
+
+  method morir(){
+    if (vida <= 0){
+      game.schedule(800, {game.stop()})
+    }
+  }
+
   // Consultas
 
   method hayEnemigoEn(posicion) {
@@ -50,14 +61,6 @@ object doomSlayer {
 
   method validarEspacio() {
     
-  }
-
-  method position() { //metodo necesario para wollok game
-		return position
-	}
-
-  method image() { //metodo necesario para wollok game
-    return image
   }
 
   method ataque() {
