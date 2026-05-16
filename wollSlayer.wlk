@@ -1,12 +1,15 @@
 import wollok.game.*
 import direcciones.*
+
 object doomSlayer {
   var property vida = 100
   const inventario = #{}
   var ataque = 1
   var position = game.origin()
   var image = "Idle_WollSlayer.png"
-  var direccionApuntado = null
+  var apuntado = arriba
+  
+  
 
   // Acciones
 
@@ -18,8 +21,8 @@ object doomSlayer {
 
   method mover(direccion) {
     const nuevaPosition = direccion.siguiente(position)
+    apuntado = direccion
     position = nuevaPosition
-    direccionApuntado = direccion
     self.animacion1()
     game.onTick(800, "animacion de Movimiento", {image = "Idle_WollSlayer.png"})
   }
@@ -29,8 +32,9 @@ object doomSlayer {
   }
 
   method atacar() {
-    if (self.hayEnemigoEn(direccionApuntado.siguiente(position))) {
-      game.getObjectsIn(direccionApuntado).forEach({objeto => game.removeVisual(objeto)})
+    const posicionApuntado = apuntado.siguiente(position) // Devuelve una posicion mas a la que se quedo mirando
+    if (self.hayEnemigoEn(posicionApuntado)) {
+      self.eliminarEnemigoEn(posicionApuntado)
     }
   }
   
@@ -38,10 +42,16 @@ object doomSlayer {
 		position = _position 
 	}
 
+  method eliminarEnemigoEn(posicion) { 
+    game.getObjectsIn(posicion).filter({ e => e.esEnemigo() }).forEach({ enemigo => enemigo.bajarVida(ataque)
+                                                                          if (enemigo.vida()< 1) {
+                                                                            game.removeVisual(enemigo) } } )                                            // Eliminar enemigo en la posicion dada
+  }
+
   // Consultas
 
   method hayEnemigoEn(posicion) {
-    return game.getObjectsIn(posicion).any({objeto => objeto.esEnemigo()})
+    return game.getObjectsIn(posicion).any({enemigo => enemigo.esEnemigo()})  //Comprobacion si hay enemigos en la posicion dada
 	}
 
   method validarEspacio() {
