@@ -19,6 +19,6 @@ object ornstein {
   }
 
   method image() {
-    return "Idle_WollSlayer.png"
+    return "doomSlayer-abajo.png"
   }
 }
