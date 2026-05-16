@@ -37,6 +37,10 @@ object doomSlayer {
       self.eliminarEnemigoEn(posicionApuntado)
     }
   }
+  
+  method position(_position) { //el setter solo lo necesito para testear
+		position = _position 
+	}
 
   method eliminarEnemigoEn(posicion) { 
     game.getObjectsIn(posicion).filter({ e => e.esEnemigo() }).forEach({ enemigo => enemigo.bajarVida(ataque)
