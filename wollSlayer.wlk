@@ -5,8 +5,8 @@ object doomSlayer {
   const inventario = #{}
   var ataque = 1
   var position = game.origin()
-  var image = "Idle_WollSlayer.png"
-  var direccionApuntado = null
+  var direccionApuntado = derecha
+  var image = "doomSlayer-derecha.png"
 
   // Acciones
 
@@ -20,13 +20,9 @@ object doomSlayer {
     const nuevaPosition = direccion.siguiente(position)
     position = nuevaPosition
     direccionApuntado = direccion
-    self.animacion1()
-    game.onTick(800, "animacion de Movimiento", {image = "Idle_WollSlayer.png"})
-  }
-
-  method animacion1() {
-    image = "Walk2_WollSlayer.png"
-  }
+    image = "doomSlayer-walk-" + direccion.toString() + "1.png"
+    game.schedule(150, {image = "doomSlayer-" + direccion.toString() + ".png"})
+}
 
   method atacar() {
     if (self.hayEnemigoEn(direccionApuntado.siguiente(position))) {
@@ -63,4 +59,5 @@ object doomSlayer {
   method vida() {
     return vida
   }
+
 }
