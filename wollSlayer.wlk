@@ -1,11 +1,14 @@
 import wollok.game.*
 import direcciones.*
+
 object doomSlayer {
   var property vida = 100
   const inventario = #{}
   var ataque = 1
   var position = game.origin()
   var image = "Idle_WollSlayer.png"
+  var apuntado = arriba
+  
   
 
   // Acciones
@@ -18,6 +21,7 @@ object doomSlayer {
 
   method mover(direccion) {
     const nuevaPosition = direccion.siguiente(position)
+    apuntado = direccion
     position = nuevaPosition
     self.animacion1()
     game.onTick(800, "animacion de Movimiento", {image = "Idle_WollSlayer.png"})
@@ -28,9 +32,9 @@ object doomSlayer {
   }
 
   method atacar() {
-    const areaEfecto = [self.position().up(1),self.position().down(1),self.position().left(1),self.position().right(1)] //Area de efecto del ataque
-    if (areaEfecto.any({p => self.hayEnemigoEn(p)})) {
-      areaEfecto.forEach({p => self.eliminarEnemigoEn(p)})
+    const posicionApuntado = apuntado.siguiente(position) // Devuelve una posicion mas a la que se quedo mirando
+    if (self.hayEnemigoEn(posicionApuntado)) {
+      self.eliminarEnemigoEn(posicionApuntado)
     }
   }
 
