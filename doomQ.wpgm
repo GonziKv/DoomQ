@@ -3,15 +3,17 @@ import wollSlayer.*
 import armas.*
 import direcciones.*
 import enemigos.*
+import randomizer.*
 
 program DoomSlayer {
 	game.title("DoomQ")
 	game.height(10)
 	game.width(10)
 	game.boardGround("caminoPrueba.png")
+	const enemigo = fabricaDeEnemigos.crearOrnstein()
 
 	game.showAttributes(doomSlayer.vida())
-	game.addVisual(ornstein)
+	game.addVisual(enemigo)
 	game.addVisual(espadaComun)
 	game.addVisual(doomSlayer)
 
