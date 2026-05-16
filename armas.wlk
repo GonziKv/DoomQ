@@ -1,4 +1,19 @@
-object espadaComun {
+import wollok.game.*
+class Espada{
+  const property atq
+  const property position
+  const property image
+  method recibirEspadazo(cant){
+  }
+}
+object alijoDeEspadas{
+  method crearEspadaComun(){
+    return new Espada(
+                      atq = 3,
+                      position = game.at(1, 0),
+                      image = "SwordNormal_WollSlayer.png")}
+}
+/*object espadaComun {
   const atq = 3
   var property position = game.at(1,0)
 
@@ -37,4 +52,4 @@ object espadaEpico {
   method esEnemigo() {
     return false
   }
-}
+}*/
