@@ -31,17 +31,30 @@ class Enemigo{
   var property position 
   var property vida 
   var property image 
+
   method esEnemigo(){
       return true
   }
 
+  method recibirEspadazo(cantidadDeDaño){
+    vida -= cantidadDeDaño
+    if (vida >= 0){
+      self.morir()
+    }
+  }
+
+  method morir(){
+    if (vida <= 0){
+      game.removeVisual(self)
+    }
+  }
 }
 object fabricaDeEnemigos{
-  method crearOrnstein(){
+  method crearEnemigo(){
     return new Enemigo(
-      vida = 100,
-      position = randomizer.emptyPosition(),
-      image = "ornstein.png"
-    )
+                        vida = 1,
+                        position = randomizer.emptyPosition(),
+                        image = "enemigo-" + (0.randomUpTo(4)).toString() + ".png" 
+    )// mantener esta nomenclatura de "enemigo-" + NUMERO + ".png" y cambiar la cantidad a ser randomizada si llegase a ser mas de 4
   }
 }
