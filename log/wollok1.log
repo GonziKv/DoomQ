@@ -180,3 +180,4 @@
 {"exitCode":"SIGHUP","level":"info","message":"👾 Game executed doomQ.DoomSlayer on c:\\Users\\sabri\\OneDrive\\Desktop\\Objetos-ejercicios\\DoomQ","timeElapsed":89635,"timestamp":"2026-05-16T00:22:05.512Z"}
 {"level":"info","message":"🚀 Program executed \u001b[3m\u001b[34mdoomQ.DoomSlayer\u001b[39m\u001b[23m on \u001b[3m\u001b[34mc:\\Users\\sabri\\OneDrive\\Desktop\\Objetos-ejercicios\\DoomQ\u001b[39m\u001b[23m","ok":true,"timeElapsed":390,"timestamp":"2026-05-16T00:22:07.364Z"}
 {"exitCode":"SIGHUP","level":"info","message":"👾 Game executed doomQ.DoomSlayer on c:\\Users\\sabri\\OneDrive\\Desktop\\Objetos-ejercicios\\DoomQ","timeElapsed":629619,"timestamp":"2026-05-16T00:32:36.606Z"}
+{"level":"info","message":"🚀 Program executed \u001b[3m\u001b[34mdoomQ.DoomSlayer\u001b[39m\u001b[23m on \u001b[3m\u001b[34mc:\\Users\\sabri\\OneDrive\\Desktop\\Objetos-ejercicios\\DoomQ\u001b[39m\u001b[23m","ok":true,"timeElapsed":349,"timestamp":"2026-05-16T00:32:38.779Z"}
