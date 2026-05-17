@@ -70,4 +70,8 @@ object doomSlayer {
   method ataqueTotal(){
     return ataque + inventario.sum({arma => arma.atq()})
   }
+  
+  method esSolido(){
+    return false
+  }
 }
