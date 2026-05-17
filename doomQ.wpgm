@@ -5,7 +5,6 @@ import direcciones.*
 import enemigos.*
 import cofre.*
 
-
 program DoomSlayer {
 	game.title("DoomQ")
 	game.height(10)
@@ -13,9 +12,9 @@ program DoomSlayer {
 	game.boardGround("caminoPrueba.png")
 
 	game.showAttributes(doomSlayer.vida())
-	game.addVisual(espadaComun)
 	game.addVisual(ornstein)
 	game.addVisual(cofre)
+	game.addVisual(espadaComun)
 	game.addVisual(doomSlayer)
 
 	keyboard.left().onPressDo({ doomSlayer.mover(izquierda)})
