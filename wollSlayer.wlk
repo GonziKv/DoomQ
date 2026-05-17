@@ -1,5 +1,6 @@
 import wollok.game.*
 import direcciones.*
+import cofre.*
 
 object doomSlayer {
   var property vida = 100
@@ -24,7 +25,7 @@ object doomSlayer {
     position = nuevaPosition
     image = "doomSlayer-walk-" + direccion.toString() + "1.png"
     game.schedule(150, {image = "doomSlayer-" + direccion.toString() + ".png"})
-}
+  }
 
   method atacar() {
     const posicionApuntado = apuntado.siguiente(position) // Devuelve una posicion mas a la que se quedo mirando
@@ -50,8 +51,19 @@ object doomSlayer {
       game.schedule(800, {game.stop()})
     }
   }
+  method abrirCofre() {
+    self.validarQueHayCofre()
+    inventario.add(cofre.abrir())
+  }
 
   // Consultas
+
+  method validarQueHayCofre() {
+    // tambien se podria hacer que el personaje este en la celda lindante y no necesariamente encima.
+    if (not(game.onSameCell(position, cofre.position()))){
+		self.error("No puedo abrir si no estoy en la misma posicion")
+	  }
+  }
 
   method hayEnemigoEn(posicion) {
     return game.getObjectsIn(posicion).any({enemigo => enemigo.esEnemigo()})  //Comprobacion si hay enemigos en la posicion dada
@@ -82,5 +94,8 @@ object doomSlayer {
 
   method esSolido(){
     return false
+  }
+  method cantItems() { // LO USAMOS PARA TESTEAR EL COFRE
+    return inventario.size().toString()
   }
 }
