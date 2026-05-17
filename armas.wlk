@@ -14,6 +14,10 @@ class Espada{
   method esArmamento(){
     return true
   }
+
+  method serAgarrada(){
+    game.removeVisual(self)
+  }
 }
 object alijoDeEspadas{
   method crearEspadaComun(){
