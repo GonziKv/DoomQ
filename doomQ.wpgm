@@ -3,6 +3,7 @@ import wollSlayer.*
 import armas.*
 import direcciones.*
 import enemigos.*
+import randomizer.*
 import cofre.*
 
 program DoomSlayer {
@@ -10,17 +11,19 @@ program DoomSlayer {
 	game.height(10)
 	game.width(10)
 	game.boardGround("caminoPrueba.png")
-
+	const enemigo = fabricaDeEnemigos.crearEnemigo()
+	const espadaComun = alijoDeEspadas.crearEspadaComun()
+	
 	game.showAttributes(doomSlayer.vida())
-	game.addVisual(ornstein)
+	game.addVisual(enemigo)
 	game.addVisual(cofre)
 	game.addVisual(espadaComun)
 	game.addVisual(doomSlayer)
 
-	keyboard.left().onPressDo({ doomSlayer.mover(izquierda)})
-	keyboard.right().onPressDo({ doomSlayer.mover(derecha)})
-	keyboard.up().onPressDo({ doomSlayer.mover(arriba)})
-	keyboard.down().onPressDo({ doomSlayer.mover(abajo)})
+	keyboard.a().onPressDo({ doomSlayer.mover(izquierda)})
+	keyboard.d().onPressDo({ doomSlayer.mover(derecha)})
+	keyboard.w().onPressDo({ doomSlayer.mover(arriba)})
+	keyboard.s().onPressDo({ doomSlayer.mover(abajo)})
 	keyboard.c().onPressDo({ doomSlayer.agarrarArma(game.uniqueCollider(doomSlayer))})
 	keyboard.space().onPressDo({ doomSlayer.atacar()})
 	keyboard.f().onPressDo({ doomSlayer.abrirCofre()})
