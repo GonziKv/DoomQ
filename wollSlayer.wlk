@@ -70,7 +70,7 @@ object doomSlayer {
 	}
 
   method validarMovimiento(posicion) {
-    if (!self.hayObjetoSolido(posicion)){
+    if (self.hayObjetoSolido(posicion)){
       self.error("No puedo avanzar")
     }
   }
