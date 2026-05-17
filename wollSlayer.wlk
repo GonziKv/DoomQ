@@ -20,6 +20,7 @@ object doomSlayer {
   method mover(direccion) {
     const nuevaPosition = direccion.siguiente(position)
     apuntado = direccion
+    self.validarEspacio(nuevaPosition)
     position = nuevaPosition
     image = "doomSlayer-walk-" + direccion.toString() + "1.png"
     game.schedule(150, {image = "doomSlayer-" + direccion.toString() + ".png"})
@@ -56,7 +57,10 @@ object doomSlayer {
     return game.getObjectsIn(posicion).any({enemigo => enemigo.esEnemigo()})  //Comprobacion si hay enemigos en la posicion dada
 	}
 
-  method validarEspacio() {
+  method validarEspacio(posicion) {
+    if (game.getObjectsIn(posicion).any({objeto => objeto.esSolido()})){
+      self.error("No puedo avanzar")
+    }
   }
 
   method ataqueTotal(){

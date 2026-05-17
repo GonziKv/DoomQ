@@ -51,6 +51,10 @@ class Enemigo{
   method colisionar(personaje) {
     personaje.recibirDaño(ataque)
   }
+
+  method esSolido(){
+    return false
+  }
 }
 object fabricaDeEnemigos{
   method crearEnemigo(){

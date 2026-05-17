@@ -5,6 +5,9 @@ class Espada{
   const property image
   method recibirEspadazo(cant){
   }
+   method esSolido(){
+    return false
+  }
 }
 object alijoDeEspadas{
   method crearEspadaComun(){
