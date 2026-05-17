@@ -12,7 +12,7 @@ object doomSlayer {
   // Acciones
 
   method agarrarArma(arma) {
-    self.validarEspacio()
+    self.validarAgarrarArma(position)
     inventario.add(arma)
     game.removeVisual(arma)
   }
@@ -58,9 +58,18 @@ object doomSlayer {
 	}
 
   method validarEspacio(posicion) {
-    if (self.hayObjetoSolido(posicion)){
+    if (!self.hayObjetoSolido(posicion)){
       self.error("No puedo avanzar")
     }
+  }
+
+  method validarAgarrarArma(posicion){
+    if (!self.hayArma(posicion)){
+      self.error("No hay arma para agarrar")
+    }
+  }
+  method hayArma(posicion){
+    return game.getObjectsIn(posicion).any({objeto => objeto.esArmamento()})
   }
 
   method hayObjetoSolido(posicion){
@@ -70,7 +79,7 @@ object doomSlayer {
   method ataqueTotal(){
     return ataque + inventario.sum({arma => arma.atq()})
   }
-  
+
   method esSolido(){
     return false
   }

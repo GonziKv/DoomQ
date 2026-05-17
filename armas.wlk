@@ -3,10 +3,16 @@ class Espada{
   const property atq
   const property position
   const property image
+
   method recibirEspadazo(cant){
-  }
-   method esSolido(){
+  } //method vacio para cumplir polimorfismo
+
+  method esSolido(){
     return false
+  }
+
+  method esArmamento(){
+    return true
   }
 }
 object alijoDeEspadas{

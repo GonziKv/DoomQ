@@ -55,6 +55,9 @@ class Enemigo{
   method esSolido(){
     return false
   }
+  method esArmamento(){
+    return false
+  }
 }
 object fabricaDeEnemigos{
   method crearEnemigo(){
