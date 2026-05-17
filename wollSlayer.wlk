@@ -58,9 +58,13 @@ object doomSlayer {
 	}
 
   method validarEspacio(posicion) {
-    if (game.getObjectsIn(posicion).any({objeto => objeto.esSolido()})){
+    if (self.hayObjetoSolido(posicion)){
       self.error("No puedo avanzar")
     }
+  }
+
+  method hayObjetoSolido(posicion){
+    return game.getObjectsIn(posicion).any({objeto => objeto.esSolido()})
   }
 
   method ataqueTotal(){
