@@ -58,14 +58,37 @@ class Enemigo{
   method esArmamento(){
     return false
   }
+
+  method esObjeto() {
+    return false
+  }
 }
 object fabricaDeEnemigos{
-  method crearEnemigo(){
+  
+  
+  
+  method newEnemigo(posicion){
     return new Enemigo(
                         vida = 100,
                         ataque = 10,
-                        position = randomizer.emptyPosition(),
-                        image = "enemigo-" + (0.randomUpTo(4)).toString() + ".png" 
+                        position = posicion,
+                        image = "Enemigo.png" 
     )// mantener esta nomenclatura de "enemigo-" + NUMERO + ".png" y cambiar la cantidad a ser randomizada si llegase a ser mas de 4
   }
+
+
+  method respawnEnemigo() {
+    const posicion = randomizer.emptyPosition()
+    if (!self.hayObjEn(posicion)) {
+      self.newEnemigo(posicion)
+    }
+  }
+
+  method hayObjEn(posicion) {
+    return game.getObjectsIn(posicion).any({algo => algo.esObjeto()})
+  }
+
+
+
+
 }

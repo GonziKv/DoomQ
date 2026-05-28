@@ -4,7 +4,7 @@ import armas.*
 
 object cofre {
   // esto se puede cambiar a listaDeObjetos y que tenga espadas e items o vida/perks
-  var property listaDeArmas = []
+  var property gambling = []
   var property position = game.at(7, 4)
 
   method image() {
@@ -13,7 +13,7 @@ object cofre {
   }
 
   method abrir() {
-    return listaDeArmas.anyOne() // .anyOne() devuelve un elemento aleatorio de una lista/conjunto.
+    return gambling.anyOne() // .anyOne() devuelve un elemento aleatorio de una lista/conjunto.
   }
 
   method esSolido(){
@@ -21,5 +21,9 @@ object cofre {
   }
   method esArmamento(){
     return false
+  }
+
+  method esObjeto() {
+    return true
   }
 }

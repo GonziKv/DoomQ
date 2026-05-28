@@ -11,7 +11,7 @@ program DoomSlayer {
 	game.height(10)
 	game.width(10)
 	game.boardGround("caminoPrueba.png")
-	const enemigo = fabricaDeEnemigos.crearEnemigo()
+	const enemigo = fabricaDeEnemigos.respawnEnemigo()
 	const espadaComun = alijoDeEspadas.crearEspadaComun()
 	
 	game.showAttributes(doomSlayer.vida())

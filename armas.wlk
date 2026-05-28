@@ -18,6 +18,10 @@ class Espada{
   method serAgarrada(){
     game.removeVisual(self)
   }
+  
+  method esObjeto() {
+    return true
+  }
 }
 object alijoDeEspadas{
   method crearEspadaComun(){
@@ -25,6 +29,7 @@ object alijoDeEspadas{
                       atq = 3,
                       position = game.at(1, 0),
                       image = "SwordNormal_WollSlayer.png")}
+    
 }
 /*object espadaComun {
   const atq = 3

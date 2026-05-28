@@ -5,7 +5,7 @@ import cofre.*
 object doomSlayer {
   var property vida = 100
   const inventario = #{}
-  var property ataque = 1
+  var property ataque = 100
   var property position = game.origin()
   var property image = "doomSlayer-derecha.png"
   var apuntado = derecha
